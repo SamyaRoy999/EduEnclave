@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import {
   BadgeCheck,
@@ -7,13 +7,9 @@ import {
   CreditCard,
   LogOut,
   Sparkles,
-} from "lucide-react"
+} from "lucide-react";
 
-import {
-  Avatar,
-  AvatarFallback,
-  AvatarImage,
-} from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -22,25 +18,33 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
   useSidebar,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
+
+// dark mode
+import { Moon, MoonIcon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
+
+import { Button } from "@/components/ui/button";
+
+// dark mode
 
 export function NavUser({
   user,
 }: {
   user: {
-    name: string
-    email: string
-    avatar: string
-  }
+    name: string;
+    email: string;
+    avatar: string;
+  };
 }) {
-  const { isMobile } = useSidebar()
-
+  const { isMobile } = useSidebar();
+  const { setTheme } = useTheme();
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -96,6 +100,25 @@ export function NavUser({
                 <CreditCard />
                 Billing
               </DropdownMenuItem>
+              {/* dark mode */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="outline" size="icon">
+                    <Sun className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
+                    <Moon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
+                    <span className="sr-only">Toggle theme</span>
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end">
+                  <DropdownMenuItem onClick={() => setTheme("light")}>
+                    Light
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => setTheme("dark")}>
+                    Dark
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+              {/* dark mode */}
               <DropdownMenuItem>
                 <Bell />
                 Notifications
@@ -110,5 +133,5 @@ export function NavUser({
         </DropdownMenu>
       </SidebarMenuItem>
     </SidebarMenu>
-  )
+  );
 }
