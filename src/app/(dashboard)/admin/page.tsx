@@ -1,3 +1,4 @@
+import AttendanceCharts from "@/components/AttendanceCharts";
 import CountCharts from "@/components/CountCharts";
 import UserCard from "@/components/UserCard";
 import React from "react";
@@ -13,11 +14,17 @@ const page = () => {
           <UserCard type="parent" />
           <UserCard type="staff" />
         </div>
-        <div className="flex gap-4 flex-col lg:flex-row">
+        <div className="flex gap-4 flex-col lg:flex-row justify-between items-end">
           {/* pic chart */}
           <div>
             <p className=" text-lg">Students</p>
             <CountCharts />
+          </div>
+          <div>
+            <p className=" text-lg ">Attendance</p>
+            <div>
+              <AttendanceCharts />
+            </div>
           </div>
         </div>
       </div>

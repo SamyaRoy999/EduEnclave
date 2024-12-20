@@ -1,14 +1,7 @@
 "use client";
 import React from "react";
 import { RadialBar, RadialBarChart } from "recharts";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { CardContent, CardFooter } from "@/components/ui/card";
 import {
   ChartConfig,
   ChartContainer,
@@ -49,15 +42,11 @@ const chartConfig = {
 } satisfies ChartConfig;
 const CountCharts = () => {
   return (
-    <Card className="flex flex-col">
-      <CardHeader className="items-center pb-0">
-        <CardTitle>Radial Chart</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
-      </CardHeader>
+    <div className="flex flex-col ">
       <CardContent className="flex-1 pb-0">
         <ChartContainer
           config={chartConfig}
-          className="mx-auto aspect-square h-[250px]"
+          className="mx-auto aspect-square h-[250px] max-w-[200px]"
         >
           <RadialBarChart data={chartData} innerRadius={30} outerRadius={110}>
             <ChartTooltip
@@ -70,17 +59,17 @@ const CountCharts = () => {
       </CardContent>
       <CardFooter className="flex gap-2 text-sm justify-between">
         <div className="">
-          <div className="w-5 h-5  bg-[#2EB88A] rounded-full "></div>
-          <h3 className="font-bold py-2">1,200</h3>
+          <div className="w-3 h-3  bg-[#2EB88A] rounded-full "></div>
+          <h3 className="font-bold py-1">1,200</h3>
           <p className="text-gray-300">boy (50%)</p>
         </div>
         <div className="">
-          <div className="w-5 h-5 bg-[#2662D9] rounded-full "></div>
-          <h3 className="font-bold py-2">1,300</h3>
+          <div className="w-3 h-3 bg-[#2662D9] rounded-full "></div>
+          <h3 className="font-bold py-1">1,300</h3>
           <p className="text-gray-300">Girls(50%)</p>
         </div>
       </CardFooter>
-    </Card>
+    </div>
   );
 };
 
