@@ -1,3 +1,4 @@
+import CountCharts from "@/components/CountCharts";
 import UserCard from "@/components/UserCard";
 import React from "react";
 
@@ -11,6 +12,13 @@ const page = () => {
           <UserCard type="Teacher" />
           <UserCard type="parent" />
           <UserCard type="staff" />
+        </div>
+        <div className="flex gap-4 flex-col lg:flex-row">
+          {/* pic chart */}
+          <div>
+            <p className=" text-lg">Students</p>
+            <CountCharts />
+          </div>
         </div>
       </div>
       {/* right  */}
