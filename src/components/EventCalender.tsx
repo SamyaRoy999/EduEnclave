@@ -1,8 +1,10 @@
 "use client";
 import { Calendar } from "@/components/ui/calendar";
 import { useState } from "react";
+import { Card } from "./ui/card";
+import Announcements from "./Announcements";
 
-const events = [
+export const events = [
   {
     id: 1,
     title: "Annual Sports Day",
@@ -36,13 +38,29 @@ const events = [
 const EventCalender = () => {
   const [date, setDate] = useState<Date | undefined>(new Date());
   return (
-    <Calendar
-      mode="single"
-      selected={date}
-      onSelect={setDate}
-      className="rounded-md border"
-    />
-    
+    <>
+      <Calendar
+        mode="single"
+        selected={date}
+        onSelect={setDate}
+        className="rounded-md border"
+      />
+      <div>
+        <h1>Events</h1>
+        {events.map((item) => (
+          <Card key={item.id} className="my-5 p-3">
+            <div className="flex justify-between items-center">
+              <h3 className="text-base text-slate-400 dark:text-white ">
+                {item.title}
+              </h3>
+              <p className="text-[10px] text-slate-400">{item.time}</p>
+            </div>
+            <p className="text-sm text-slate-300 py-1">{item.description}</p>
+          </Card>
+        ))}
+      </div>
+      <Announcements />
+    </>
   );
 };
 
