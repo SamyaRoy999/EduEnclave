@@ -1,5 +1,6 @@
 // import { Link } from "lucide-react";
 
+import { role } from "@/lib/data";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -124,16 +125,20 @@ const Menu = () => {
       {menuItems.map((i) => (
         <div key={i.title} className="flex flex-col gap-2">
           {/* <span>{i.title}</span> */}
-          {i.items.map((item) => (
-            <Link
-              href={item.href}
-              key={item.label}
-              className="flex gap-3 ml-2 p-2"
-            >
-              <Image src={item.icon} alt="" width={20} height={20} />
-              <span>{item.label}</span>
-            </Link>
-          ))}
+          {i.items.map((item) => {
+            if (item.visible.includes(role)) {
+              return (
+                <Link
+                  href={item.href}
+                  key={item.label}
+                  className="flex gap-3 ml-2 p-2"
+                >
+                  <Image src={item.icon} alt="" width={20} height={20} />
+                  <span>{item.label}</span>
+                </Link>
+              );
+            }
+          })}
         </div>
       ))}
     </div>

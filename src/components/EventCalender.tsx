@@ -43,7 +43,7 @@ const EventCalender = () => {
         mode="single"
         selected={date}
         onSelect={setDate}
-        className="rounded-md border"
+        className="rounded-md border w-full max-w-64 lg:w-full mx-auto"
       />
       <div>
         <h1>Events</h1>

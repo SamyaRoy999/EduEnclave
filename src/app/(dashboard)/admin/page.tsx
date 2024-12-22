@@ -16,7 +16,7 @@ const page = () => {
           <UserCard type="parent" />
           <UserCard type="staff" />
         </div>
-        <div className="flex gap-4 flex-col my-8 lg:flex-row justify-between items-end">
+        <div className="flex gap-4 flex-col items-center justify-center my-8 lg:flex-row  ">
           {/*Count Charts */}
           <div className="">
             <p className=" text-lg">Students</p>
