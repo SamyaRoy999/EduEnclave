@@ -1,6 +1,6 @@
 // TEMPORARY DATA
 
-export let role = "student";
+export let role = "admin";
 
 export const teachersData = [
   {
@@ -1056,7 +1056,7 @@ export const calendarEvents = [
   {
     title: "History",
     allDay: false,
-    start: new Date(2024, 7, 16, 14, 0),
-    end: new Date(2024, 7, 16, 14, 45),
+    start: new Date(2024, 7, 14, 14, 0),
+    end: new Date(2024, 7, 14, 14, 45),
   },
 ];

@@ -5,7 +5,7 @@ import FinanceCharts from "@/components/FinanceCharts";
 import UserCard from "@/components/UserCard";
 import React from "react";
 
-const page = () => {
+const AdminPage = () => {
   return (
     <div className="flex flex-col gap-4 m-6 md:flex-row">
       {/* left  */}
@@ -45,4 +45,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default AdminPage;
