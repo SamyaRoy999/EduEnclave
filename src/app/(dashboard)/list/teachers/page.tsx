@@ -2,8 +2,8 @@ import Pagination from "@/components/Pagination";
 import Table from "@/components/Table";
 import TableSearch from "@/components/TableSearch";
 import { teachersData } from "@/lib/data";
-import { Link } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 type Teacher = {
