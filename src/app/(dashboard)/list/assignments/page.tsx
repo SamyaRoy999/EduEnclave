@@ -1,3 +1,4 @@
+import FormModal from "@/components/FormModal";
 import Pagination from "@/components/Pagination";
 import Table from "@/components/Table";
 import TableSearch from "@/components/TableSearch";
@@ -53,7 +54,8 @@ const AssignmentListPage = () => {
           {role === "admin" ||
             (role === "teacher" && (
               <>
-                <Button>added</Button>
+                <FormModal table="assignment" type="update" data={item} />
+                <FormModal table="assignment" type="delete" id={item.id} />
               </>
             ))}
         </div>
@@ -66,17 +68,21 @@ const AssignmentListPage = () => {
       {/* TOP */}
       <div className="flex items-center justify-between">
         <h1 className="hidden md:block text-lg font-semibold">
-          All Assignments    
+          All Assignments
         </h1>
         <div className="flex flex-col md:flex-row items-center gap-4 w-full md:w-auto">
           <TableSearch />
           <div className="flex  items-center gap-4 self-end">
-            <button className="w-8 h-8 dark:bg-white flex items-center justify-center rounded-full bg-lamaYellow">
+            <button className="w-8 h-8 dark:bg-white flex items-center justify-center rounded-full bg-white">
               <Image src="/filter.png" alt="" width={14} height={14} />
             </button>
-            <button className="w-8 h-8 flex dark:bg-white items-center justify-center rounded-full bg-lamaYellow">
+            <button className="w-8 h-8 flex dark:bg-white items-center justify-center rounded-full bg-white">
               <Image src="/sort.png" alt="" width={14} height={14} />
             </button>
+            {role === "admin" ||
+              (role === "teacher" && (
+                <FormModal table="assignment" type="create" />
+              ))}
           </div>
         </div>
       </div>
